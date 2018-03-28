@@ -1,4 +1,5 @@
 # iShare
+[![Build Status](https://travis-ci.org/Starrier/iShare.svg?branch=master)](https://travis-ci.org/Starrier/iShare)
 
 **Blog written with feeling and life**
 
