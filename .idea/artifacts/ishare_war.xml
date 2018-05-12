@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ishare:war">
-    <output-path>$PROJECT_DIR$/../ishare/target</output-path>
-    <root id="archive" name="ishare-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="ishare:war exploded" />
-    </root>
-  </artifact>
-</component>
