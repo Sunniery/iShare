@@ -27,7 +27,7 @@ branches:
     - master
 
 notifications:
-  email:false
+  webhooks:https://oapi.dingtalk.com/robot/send?access_token=3ee396e877598f75bfebedec9f226f9f286037437443ac0c429b2aaa6df0d10a
 
 env:
   global:
