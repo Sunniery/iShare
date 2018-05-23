@@ -5,6 +5,7 @@
 
 #target
 .target/
+.target
 
 # Compiled class file
 *.class
