@@ -12,10 +12,13 @@
 </head>
 <body>
 <%
+    HttpSession sessions=request.getSession();
+    sessions.getAttribute("user");
     String msg=(String)request.getAttribute("msg");
     if (msg!=null){
 %>
     <h1><%=msg%></h1>
+<%=sessions%>
 <%
     }
 %>

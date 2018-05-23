@@ -1,7 +1,0 @@
-org\starrier\ishare\controller\StudentController.class
-org\starrier\ishare\util\Page.class
-org\starrier\ishare\service\StudentService.class
-org\starrier\ishare\dao\StudentDao.class
-org\starrier\ishare\util\DateUtil.class
-org\starrier\ishare\service\StudentServiceImpl.class
-org\starrier\ishare\entity\Student.class
