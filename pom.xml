@@ -175,7 +175,64 @@
       <version>${spring.version}</version>
     </dependency>
 
+    <!-- Tools -->
+    <!-- Freemarker-->
+    <dependency>
+      <groupId>freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.8</version>
+    </dependency>
 
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.18</version>
+    </dependency>
+
+    <!-- Shiro Start -->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-core</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+    <!-- Shiro End -->
+
+    <!-- Restful API Docs Swagger Start -->
+    <!-- Swagger Start-->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+        <version> 2.7.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>2.7.0</version>
+    </dependency>
+    <!-- Swagger End-->
+    <!-- Jackson Start-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.9.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <!-- Jackson End -->
+    <!-- Restful API Docs Swagger End -->
   </dependencies>
 
 </project>
