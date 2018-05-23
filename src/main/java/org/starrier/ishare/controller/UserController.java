@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.rmi.ServerException;
 
 /**
  * Created by lenovo on 2018/5/12.
@@ -34,7 +33,7 @@ public class UserController {
 
     //表单提交过来的路径
     @RequestMapping("/checkLogin")
-    public String checkLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
+    public String checkLogin(Model model,HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
         String userName=req.getParameter("userName");
         String password=req.getParameter("password");
 
@@ -45,11 +44,12 @@ public class UserController {
             return "user/login";
         }
 
-        User user=userService.checkLogin(userName,password);
+         User user=userService.checkLogin(userName,password);
 
         if (user!=null){
+            model.addAttribute("user",user);
             req.setAttribute("msg","登录成功！");
-            return "user/result";
+            return "user/home";
         }else {
             req.setAttribute("msg","密码错误或用户名不存在！");
             return "user/result";

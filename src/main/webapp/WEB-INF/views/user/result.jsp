@@ -19,5 +19,8 @@
 <%
     }
 %>
+<div>
+    <strong> welcome,${sessionScope.user.userName}! </strong>
+</div>
 </body>
 </html>
