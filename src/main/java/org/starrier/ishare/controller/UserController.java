@@ -1,11 +1,9 @@
 package org.starrier.ishare.controller;
 
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.starrier.ishare.entity.User;
 import org.starrier.ishare.service.UserService;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.rmi.ServerException;
 
 /**
  * Created by lenovo on 2018/5/12.
@@ -23,30 +20,22 @@ import java.rmi.ServerException;
 @Controller
 @RequestMapping("/user")
 @SessionAttributes("user")
-@Api(tags = "user")// User Info
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     //正常访问login页面
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @RequestMapping("/login")
     public String login(){
         return "user/login";
     }
 
     //表单提交过来的路径
     @RequestMapping("/checkLogin")
-    public String checkLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
-
-
-
+    public String checkLogin(Model model,HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
         String userName=req.getParameter("userName");
         String password=req.getParameter("password");
-
-        HttpSession session=req.getSession();
-        session.setAttribute("userName",userName);
-        session.setAttribute("password",password);
 
         //如果输入的参数为空，操作终止
         if("".equals(userName)||"".equals(password)){
@@ -55,13 +44,12 @@ public class UserController {
             return "user/login";
         }
 
-
-
-        User user=userService.checkLogin(userName,password);
+         User user=userService.checkLogin(userName,password);
 
         if (user!=null){
-            req.setAttribute("msg","userName");
-            return "user/result";
+            model.addAttribute("user",user);
+            req.setAttribute("msg","登录成功！");
+            return "user/home";
         }else {
             req.setAttribute("msg","密码错误或用户名不存在！");
             return "user/result";
