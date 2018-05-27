@@ -13,4 +13,5 @@ public interface StudentDao {
     void updateStudent(Student student);
     Student getStudent(int id);
     List<Student> list(int start, int count);
+
 }
