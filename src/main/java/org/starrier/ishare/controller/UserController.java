@@ -31,6 +31,10 @@ public class UserController {
         return "user/login";
     }
 
+    @RequestMapping("/home")
+    public String home(){
+        return "user/home";
+    }
     //表单提交过来的路径
     @RequestMapping("/checkLogin")
     public String checkLogin(Model model,HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
