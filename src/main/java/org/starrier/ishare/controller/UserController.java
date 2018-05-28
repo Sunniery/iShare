@@ -26,9 +26,9 @@ public class UserController {
     private UserService userService;
 
     //正常访问login页面
-    @RequestMapping("/login")
+    @RequestMapping("/login_")
     public String login(){
-        return "user/login";
+        return "user/login_";
     }
 
     @RequestMapping("/home")
@@ -38,14 +38,14 @@ public class UserController {
     //表单提交过来的路径
     @RequestMapping("/checkLogin")
     public String checkLogin(Model model,HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
-        String userName=req.getParameter("userName");
-        String password=req.getParameter("password");
+        String userName=req.getParameter("uname");
+        String password=req.getParameter("upwd");
 
         //如果输入的参数为空，操作终止
         if("".equals(userName)||"".equals(password)){
             req.setAttribute("msg","用户名和密码均不能为空！");
             req.getRequestDispatcher("login").forward(req,resp);
-            return "user/login";
+            return "user/login_";
         }
 
          User user=userService.checkLogin(userName,password);
@@ -76,27 +76,27 @@ public class UserController {
         return "user/login";
     }
 
-    @RequestMapping("/register")
+    @RequestMapping("/register_")
     public String register(){
-        return "user/register";
+        return "user/register_";
     }
 
     @RequestMapping("/doRegister")
     public String doRegister(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        String userName=req.getParameter("userName");
-        String password=req.getParameter("password");
-        String rePassword=req.getParameter("rePassword");
+        String userName=req.getParameter("uname");
+        String password=req.getParameter("upwd");
+        String rePassword=req.getParameter("reupwd");
 
         //如果输入的参数为空，操作终止
         if("".equals(userName)||"".equals(password)||"".equals(rePassword)){
             req.setAttribute("msg","用户名和密码均不能为空！");
-            return "user/register";
+            return "user/register_";
         }
 
         //输入密码与重复密码不一致的时候
         if(!password.equals(rePassword)){
             req.setAttribute("msg","设置的密码与重复密码必须一致！");
-            return "user/register";
+            return "user/register_";
         }
 
         //用户名不符合tel或email的格式要求
@@ -104,20 +104,20 @@ public class UserController {
         String ph = "^[1][34578]\\d{9}$";
         if (!userName.matches(em)&&!userName.matches(ph)){
             req.setAttribute("msg","该用户名格式错误！");
-            return "user/register";
+            return "user/register_";
         }
 
         //如果用户名已经注册
         if (userName.equals(userService.isExist(userName))){
             req.setAttribute("msg","该用户名已经注册！");
-            return "user/register";
+            return "user/register_";
         }
 
         User user=new User();
         user.setUserName(userName);
         user.setPassword(password);
         userService.Register(user);
-        return "redirect:login";
+        return "redirect:login_";
     }
 
 }

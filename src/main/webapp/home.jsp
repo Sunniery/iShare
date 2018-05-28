@@ -65,8 +65,8 @@
                 </form>
             </a>
             <a href="/editor">写文章</a>
-            <a href="user/login">登录</a>
-            <a href="user/register">注册</a>
+            <a href="user/login_">登录</a>
+            <a href="user/register_">注册</a>
         </div>
     </div>
 </header>
